@@ -2,7 +2,9 @@ import * as VueRouter from 'vue-router'
 
 //pages
 
-import Home from '../pages/Home.vue'
+import Home from '../pages/Home.vue';
+import NotFound from '../pages/NotFound.vue';
+import TodoListPage from '../pages/Todos/TodoListPage';
 
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHistory(),
@@ -10,7 +12,16 @@ const router = VueRouter.createRouter({
         {
             path:"/",
             component: Home,
-        }
+        },
+        {
+            name: 'TodoListPage',
+            path: '/todos',
+            component: TodoListPage
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            component: NotFound,
+        },
     ]
 })
 
